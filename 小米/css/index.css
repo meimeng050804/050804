@@ -1,0 +1,593 @@
+.topbar-wrappr {
+    width: 100%;
+    background-color: #333;
+    line-height: 40px;
+    /* 若不给指定高度，则需给div clearfix 解决高度塌陷*/
+    height: 40px;
+}
+
+/* 超链接颜色 */
+.topbar a {
+    color: #b0b0b0;
+    font-size: 12px;
+    /* 点击范围 */
+    display: block;
+
+}
+
+.topbar a:hover {
+    color: #FFF;
+}
+
+/* 分割线 */
+.topbar .line {
+    color: #424242;
+    size: 12px;
+    margin: auto 8px;
+
+}
+
+/* 购物车 */
+.shop-cart {
+    margin-left: 26px;
+}
+
+.shop-cart a {
+    width: 120px;
+    background-color: #424242;
+    text-align: center;
+
+}
+
+.shop-cart i {
+    margin-right: 2px;
+}
+
+/* 注意是鼠标移入shop-cart时对a进行操作 */
+.shop-cart:hover a {
+    background-color: #FFF;
+    color: #ff6700;
+
+}
+
+/* 设置浮动 */
+.service,
+.topbar li {
+    float: left;
+}
+
+.shop-cart,
+.user-info {
+    float: right;
+}
+
+/* 图片 */
+.qrcode {
+    /* position: relative; 思考为什么不用相对定位*/
+    position: absolute;
+    left: -40px;
+    background-color: #FFF;
+    width: 124px;
+    height: 148px;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    /* display: none; */
+    /* 设置逐渐出来的效果 */
+    height: 0;
+    overflow: hidden;
+    /* 用于为样式设置过渡效果，当高度变化时 在0.3s内发生变化 */
+    transition: height 0.5s;
+    z-index: 9999;
+}
+
+.qrcode img {
+    width: 90px;
+    margin: 17px 17px 10px 17px;
+}
+
+.qrcode span {
+    color: black;
+    font-size: 14px;
+}
+
+/* 小三角区域 */
+.app {
+    position: relative;
+}
+
+/* 使用伪元素添加一个边框画出来的三角形 */
+.app-warpper:hover>.app::after {
+    display: none;
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    bottom: 0;
+    /* 三角居中 */
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.app-warpper:hover>.app .qrcode {
+    /* display: block; */
+    height: 148px;
+}
+
+/* -----------------中间header-------------------- */
+.header {
+    height: 100px;
+    background-color: #fff;
+}
+
+.header-wrapper {
+    position: relative;
+    background-color: #fff;
+}
+
+.logo {
+    float: left;
+    margin-top: 21.5px;
+    position: relative;
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    /* 隐藏文字，用于浏览器检索 */
+    text-indent: -9999px;
+
+}
+
+.logo a {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background-image: url(../img/mi-logo.png);
+    background-position: center;
+    background-color: #ff6700;
+    /* 变换效果需要指定初始的left值 若是自动auto则不生效 */
+    left: 0;
+    transition: left 0.1s;
+
+}
+
+.logo .home {
+    background-image: url(../img/mi-home.png);
+    left: -55px;
+}
+
+/* 图标位置的移动 */
+.logo:hover .mi {
+    left: 55px;
+}
+
+.logo:hover .home {
+    left: 0px;
+}
+
+/* 导航条 */
+.nav-wrapper {
+    float: left;
+    margin-left: 7px;
+}
+
+.nav-wrapper .nav {
+    /* width: 792px; */
+    background-color: #fff;
+    line-height: 100px;
+    height: 100px;
+    padding-left: 58px;
+
+}
+
+/* 设置子元素后的li浮动，是为了.left-menu不受影响 */
+.nav-wrapper .nav>li {
+    float: left;
+}
+
+/* 设置左侧导航条的样式 */
+.left-menu {
+    position: absolute;
+    left: -120px;
+    width: 234px;
+    height: 420px;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 99;
+
+}
+
+.nav-wrapper .nav .left-menu a {
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    color: white;
+    padding-left: 30px;
+
+    font-size: 14px;
+}
+
+.nav-wrapper .nav .left-menu li:hover,
+.nav-wrapper .nav .left-menu a:hover {
+    color: #FFF;
+    background-color: #ff6700
+}
+
+.left-menu a i {
+    float: right;
+    line-height: 42px;
+}
+
+.all-goods-wrapper {
+    position: relative;
+
+}
+
+
+/* 字体 */
+
+.nav-wrapper .nav li a {
+    /* 把a转化为块块元素是为了鼠标移入li里面也能进行hover高亮 */
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.all-goods {
+    /* display: none; */
+    visibility: hidden;
+}
+
+.nav-wrapper .nav a:hover {
+    color: #ff6700;
+}
+
+/* 隐藏商品列表 */
+.nav .goods-info {
+    position: absolute;
+    /* height: 228px; */
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
+    /* 参考与包含块的100%，也就是离他最近的开启了定位的元素也就是.header-wrapper */
+    width: 100%;
+    background-color: #bfa;
+    top: 100px;
+    left: 0;
+    z-index: 999;
+}
+
+/* 需要排除第一个已经隐藏的元素 */
+.nav .showgoods:hover~.goods-info {
+    height: 228px;
+    border-top: 1px solid rgba(224, 224, 224, .3);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+}
+
+.goods-info:hover {
+    height: 228px;
+    border-top: 1px solid rgba(224, 224, 224, .3);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+}
+
+/* 搜索框容器 */
+.search-warpper {
+    float: right;
+    width: 296px;
+    height: 50px;
+    /* background-color: red; */
+    margin-top: 25px;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+.search-warpper .serach-inp {
+    float: left;
+    height: 50px;
+    width: 224px;
+    /* 去除input自带样式 */
+    border: none;
+    padding: 0 10px;
+    /* 去掉选中input时的边框 */
+
+    font-size: 19px;
+}
+
+/* 搜索框获取焦点时样式的改变 */
+.search-warpper .serach-inp:focus,
+.search-warpper .serach-inp:focus+button {
+    outline: 1px solid #ff6700;
+}
+
+.search-warpper .serach-btn {
+    background-color: #FFF;
+    height: 50px;
+    width: 52px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-left: 1px solid rgb(224, 224, 224);
+}
+
+/* 鼠标移入搜索按钮 */
+.search-warpper .serach-btn:hover {
+    background-color: #ff6700;
+    border-left: none;
+}
+
+/* 搜索按钮的放大镜图标 */
+.search-warpper .serach-btn:hover.serach-btn i {
+    color: #fff;
+}
+
+.search-warpper .serach-btn i {
+    font-size: 16px;
+    color: #616161;
+}
+
+/* -------------------------- */
+/* 设置banner */
+/* 图片100%相对于li元素，li元素的的宽度是相对于banner来计算的，所以要给banner开启相对定位*/
+.banner {
+    position: relative;
+    height: 460px;
+}
+
+/* .img-list{
+    position: relative;
+} */
+.banner img {
+    width: 100%;
+}
+
+.banner .img-list li {
+    position: absolute;
+}
+
+/* 设置5个导航的点 */
+.pointer {
+    position: absolute;
+    bottom: 22px;
+    right: 35px;
+}
+
+.pointer a {
+    float: left;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 50%;
+    border: 2px rgba(255, 255, 255, .4) solid;
+    margin-right: 6px;
+}
+.pointer a:hover,
+.pointer a.active{
+    border : 2px rgba(0, 0, 0, .4) solid;
+    background-color: rgba(255, 255, 255, .4) ;
+}
+
+/* 箭头的实现 */
+.prev-next a{
+    width: 41px;
+    height: 69px;
+    /* background-color: red; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /* 雪碧图 */
+    background-image: url(../img/icon-slides.png);
+}
+.prev-next .prev{
+    /* 水平-84 垂直不用 */
+background-position: -83px 0;
+left: 234px;
+}
+.prev-next .next{
+background-position: -125px 0;
+right: 0;
+}
+.prev-next .prev:hover{
+    background-position: 0 0;
+}
+.prev-next .next:hover{
+    background-position: -42px 0;
+}
+
+/* 设置回到顶部的样式 */
+.back-top{
+    width: 26px;
+    height: 206px;
+    background-color: #bfa;
+    /* 开启固定定位 相对于视口body来固定的，但是body随着窗口的增大来增大 */
+    position:fixed;
+    bottom: 60px;
+    right: 50%;
+    /* 注意体会margin-right: -639px 和 margin-left: 639px 的区别！！*/
+    margin-right: -639px;
+}
+
+/* 设置下部的广告区域 */
+/*若不加div则被.w的样式覆盖了 */
+div.ad{
+
+    height: 170px;
+    margin-top: 14px;
+
+}
+
+.ad .shortcut,
+.ad .imgs,
+.ad li{
+    float: left;
+    list-style-type:none;
+}
+
+/* 左侧导航 */
+.ad .shortcut{
+    /* pading是为了将线挤过去 */
+    padding-left: 3px;
+    width: 228px;
+    padding-top: 4px;
+    height: 166px;
+    background-color: #643003;
+    margin-right: 14px;
+
+}
+/* 设置边框 */
+.ad .shortcut li{
+    /* 为了线相对于li移动 */
+    position: relative;
+}
+.ad .shortcut li::before{
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 1px;
+    background-color:#665e57;
+    /* top:0; */
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.ad .shortcut li::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70px;
+    background-color:#665e57;
+    /* top:0; */
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.ad .shortcut a{
+    display: block;
+    color: #CFCCCA;
+    width: 76px;
+    height: 84px;
+   /* line-height: 76px; */
+    text-align: center;
+    font-size: 12px;
+    /* 开启bfc 修正因为margin导致的高度折叠 */
+    overflow: hidden;
+}
+.ad .shortcut a:hover{
+    color: #FFF;
+}
+/* 使图标独占一行 */
+.ad .shortcut a i{
+    margin-top: 20px;
+    /* 图标和字之间 */
+    margin-bottom: 6px;
+    display: block;
+    font-size: 20px;
+
+}
+div.ad ul.imgs li {
+    width: 316px;
+    margin-right: 15px;
+}
+/* 除了最后一张不要右边距 */
+.ad .imgs li:last-child{
+    margin-right: 0;
+}
+.ad .imgs img{
+    width: 100%;
+}
+
+/* 首页右侧工具栏 */
+.tool-bar{
+    width: 84px;
+    height: 460px;
+    position: fixed;
+    bottom: 70px;
+    right: 0;
+    z-index: 999;
+    background-color: white;
+}
+.tool-bar span{
+    color: #9c9c9c;
+}
+.tool-bar ul{
+    width: 100%;
+    height: 100%;
+}
+.tool-bar li{
+    width: 100%;
+    height: 90px;
+    border: 1px solid #f5f5f5;
+    border-right: none;
+}
+.tool-bar li:hover span{
+    color: #FF6A00;
+}
+.tool-bar li:hover .static{
+    display: none;
+}
+.tool-bar li:hover .hover{
+    display: block;
+}
+.tool-bar li img{
+    width: 30px;
+    height: 30px;
+    margin-left: 27px;
+    margin-top: 18px;
+}
+.tool-bar li .hover{
+    display: none;
+}
+.tool-bar li span{
+    display: inline-block;
+    width: 100%;
+    height: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+.open-box::before{
+    display: none;
+    content: '';
+    border: 8px solid transparent;
+    border-left-color: white;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+}
+.open-box{    
+    position: relative;
+}
+.open-box .app-download{
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+    right: 94px; 
+    padding: 14px;
+    width: 100px;
+    height: 161px;
+    top: 0;
+}
+.open-box .app-download img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 6px auto;
+}
+.open-box .app-download span{
+    display: inline-block;
+    width: 80px;
+    margin-left: 10px;   
+}
+.open-box:hover::before{
+    display: block;
+}
+.open-box:hover .app-download span{
+    color: #9c9c9c;
+}
+.open-box:hover .app-download{
+    display: block;
+}
